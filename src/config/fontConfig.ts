@@ -30,28 +30,42 @@ export const fontsList: FontDefinition[] = [
 	{
 		name: "Zen Maru Gothic",
 		cssVariable: "--font-zen-maru-gothic",
-		provider: "fontsource",
-		weights: ["300", "400", "500", "600", "700"],
-		styles: ["normal"],
-		subsets: ["latin", "cyrillic"],
+		provider: "local",
+		options: {
+			variants: [
+				{ src: ["./public/assets/fonts/ZenMaruGothic-Light.woff2"], weight: "300", style: "normal" },
+				{ src: ["./public/assets/fonts/ZenMaruGothic-Regular.woff2"], weight: "400", style: "normal" },
+				{ src: ["./public/assets/fonts/ZenMaruGothic-Medium.woff2"], weight: "500", style: "normal" },
+				{ src: ["./public/assets/fonts/ZenMaruGothic-Bold.woff2"], weight: "700", style: "normal" },
+			],
+		},
 		fallbacks: ["sans-serif"],
 	},
 	{
 		name: "Inter",
 		cssVariable: "--font-inter",
-		provider: "fontsource",
-		weights: ["300", "400", "500", "600", "700"],
-		styles: ["normal"],
-		subsets: ["latin", "cyrillic"],
+		provider: "local",
+		options: {
+			variants: [
+				{ src: ["./public/assets/fonts/Inter-Light.woff2"], weight: "300", style: "normal" },
+				{ src: ["./public/assets/fonts/Inter-Regular.woff2"], weight: "400", style: "normal" },
+				{ src: ["./public/assets/fonts/Inter-Medium.woff2"], weight: "500", style: "normal" },
+				{ src: ["./public/assets/fonts/Inter-SemiBold.woff2"], weight: "600", style: "normal" },
+				{ src: ["./public/assets/fonts/Inter-Bold.woff2"], weight: "700", style: "normal" },
+			],
+		},
 		fallbacks: ["sans-serif"],
 	},
 	{
 		name: "JetBrains Mono",
 		cssVariable: "--font-jetbrains-mono",
-		provider: "fontsource",
-		weights: ["400", "700"],
-		styles: ["normal"],
-		subsets: ["latin", "cyrillic"],
+		provider: "local",
+		options: {
+			variants: [
+				{ src: ["./public/assets/fonts/JetBrainsMono-Regular.woff2"], weight: "400", style: "normal" },
+				{ src: ["./public/assets/fonts/JetBrainsMono-Bold.woff2"], weight: "700", style: "normal" },
+			],
+		},
 		fallbacks: [
 			"ui-monospace",
 			"SFMono-Regular",

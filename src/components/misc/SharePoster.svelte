@@ -388,17 +388,33 @@ async function generatePoster() {
 		const authorTextX = padding + (avatar ? 64 * scale + 16 * scale : 0);
 		const textCenterY = footerY + 32 * scale;
 
+		// QR Code position (defined early for width calculation)
+		const qrSize = 64 * scale;
+		const qrX = width - padding - qrSize;
+
+		// Site Info (Left of QR)
+		const siteInfoX = qrX - 16 * scale;
+
+		// Available width for both texts, split in the middle
+		const totalTextWidth = siteInfoX - authorTextX;
+		const midGap = 16 * scale;
+		const maxAuthorWidth = totalTextWidth / 2 - midGap;
+		const maxSiteWidth = totalTextWidth / 2 - midGap;
+
 		ctx.fillStyle = "#9ca3af";
 		ctx.font = `${12 * scale}px 'Roboto', sans-serif`;
 		ctx.fillText(i18n(I18nKey.author), authorTextX, textCenterY - 20 * scale);
 
 		ctx.fillStyle = "#1f2937";
 		ctx.font = `700 ${20 * scale}px 'Roboto', sans-serif`;
-		ctx.fillText(author, authorTextX, textCenterY + 4 * scale);
+		let displayAuthor = author;
+		while (ctx.measureText(displayAuthor).width > maxAuthorWidth && displayAuthor.length > 1) {
+			displayAuthor = displayAuthor.slice(0, -1);
+		}
+		if (displayAuthor !== author) displayAuthor += "...";
+		ctx.fillText(displayAuthor, authorTextX, textCenterY + 4 * scale);
 
 		// Right: QR Code
-		const qrSize = 64 * scale;
-		const qrX = width - padding - qrSize;
 
 		// QR Background/Shadow effect (simplified as border)
 		ctx.fillStyle = "#ffffff";
@@ -423,8 +439,6 @@ async function generatePoster() {
 			);
 		}
 
-		// Site Info (Left of QR)
-		const siteInfoX = qrX - 16 * scale;
 		ctx.textAlign = "right";
 
 		ctx.fillStyle = "#9ca3af";
@@ -433,7 +447,12 @@ async function generatePoster() {
 
 		ctx.fillStyle = "#1f2937";
 		ctx.font = `700 ${20 * scale}px 'Roboto', sans-serif`;
-		ctx.fillText(siteTitle, siteInfoX, textCenterY + 4 * scale);
+		let displaySite = siteTitle;
+		while (ctx.measureText(displaySite).width > maxSiteWidth && displaySite.length > 1) {
+			displaySite = displaySite.slice(0, -1);
+		}
+		if (displaySite !== siteTitle) displaySite += "...";
+		ctx.fillText(displaySite, siteInfoX, textCenterY + 4 * scale);
 
 		// Finalize
 		posterImage = canvas.toDataURL("image/png");
