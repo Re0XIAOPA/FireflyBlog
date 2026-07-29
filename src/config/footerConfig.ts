@@ -7,12 +7,12 @@ export const footerConfig: FooterConfig = {
 	icp: {
 		icon: "/favicon/icp-icon.png",
 		number: "湘ICP备2026030025号-1",
-		url: "https://beian.miit.gov.cn/",
+		url: "https://beian.miit.gov.cn/#/Integrated/index",
 	},
 	// 公安备案号配置，等备案下来后取消注释
-	// police: {
-	// 	icon: "/favicon/ps-icon.png",
-	// 	number: "湘公网安备：XXXXXXXXXX",
-	// 	url: "https://www.beian.gov.cn/",
-	// },
+	police: {
+		icon: "/favicon/ps-icon.png",
+		number: "湘公网安备43072402000247号",
+		url: "https://beian.mps.gov.cn/#/query/webSearch?code=43072402000247",
+	},
 };

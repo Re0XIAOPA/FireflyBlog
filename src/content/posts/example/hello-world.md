@@ -1,8 +1,8 @@
 ---
 title: "Hello World - 我的第一篇博客"
 published: 2026-07-22
-tags: ["博客", "入门"]
-category: "随笔"
+tags: ["示例"]
+category: "示例"
 description: "欢迎来到我的博客！这是我的第一篇文章，简单介绍一下自己和这个博客。"
 ---
 

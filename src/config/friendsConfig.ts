@@ -31,7 +31,38 @@ export const friendsConfig: FriendLink[] = [
 	// 	tags: ["Blog"],
 	// 	weight: 10,
 	// 	enabled: true,
-	// },
+	// },	
+	
+
+	{
+		title: "Re0XIAOPA DOCS",
+		imgurl: "https://www.awafuns.cn/tool.png",
+		desc: "每时每刻学习着  -  Learning all the time",
+		siteurl: "https://www.awafuns.cn/",
+		tags: ["文档"],
+		weight: 10,
+		enabled: true,
+	},
+	{
+		title: "BlockTavewrn - 方块酒馆",
+		imgurl: "/src/config/images/logo.png",
+		desc: "认准 BlockTavern 官方网站，获取最新安全版本",
+		siteurl: "https://www.blocktavern.cn/",
+		tags: ["游戏"],
+		weight: 10,
+		enabled: true,
+	},
+	{
+		title: "BlockTavern 文档",
+		imgurl: "https://docs.blocktavern.cn/assets/images/logo.png",
+		desc: "欢迎来到 BlockTavern 官方文档！在这里，每一个方块都有故事，每一个玩家都是传奇。",
+		siteurl: "https://docs.blocktavern.cn/",
+		tags: ["文档"],
+		weight: 10,
+		enabled: true,
+	},
+	
+
 ];
 
 // 获取启用的友链并进行排序
